@@ -9,12 +9,12 @@ export class Category {
   @Property()
   name!: string;
 
-  @Property()
-  createdAt = new Date();
+  @Property({ onCreate: () => new Date() })
+  createdAt?: Date = new Date();
 
   @Property({ onUpdate: () => new Date() })
-  updatedAt = new Date();
+  updatedAt?: Date = new Date();
 
-  @OneToMany(()=>Post,(post)=>post.category)
-  posts=new Collection<Post>(this)
+  @OneToMany(() => Post, (post) => post.category)
+  posts = new Collection<Post>(this);
 }
