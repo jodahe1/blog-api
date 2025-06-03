@@ -1,10 +1,11 @@
 import { Options } from '@mikro-orm/core';
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { Migrator } from '@mikro-orm/migrations';
-
+import { Post } from './entities/post.entity';
+import { Category } from './entities/category.entity';
 
 const config: Options<PostgreSqlDriver> = {
- // entities: [Course],
+  entities: [Post,Category],
   dbName: 'Blog-Api',
   user: 'postgres',
   password: 'Admin',

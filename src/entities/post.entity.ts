@@ -12,11 +12,11 @@ export class Post {
   @Property()
   content!: string;
 
-  @Property()
-  createdAt = new Date();
+  @Property({onCreate:()=>new Date()})
+  createdAt? = new Date();
 
   @Property({ onUpdate: () => new Date() })
-  updatedAt = new Date();
+  updatedAt? = new Date();
 
   @ManyToOne(()=>Category)
   category!:Category
